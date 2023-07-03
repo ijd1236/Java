@@ -91,15 +91,73 @@ System.out.println("지금까지 학생수는" + StaticVar.count);
 
 
 
+## Method Overloding
+
+- Method Overloding 이란 하나의 클래스에 같은 이름의 메서드를 여러 개 정의하는 것을 말합니다.
+
+### 오버로딩의 조건
+
+- 메서드의 이름이 같아야합니다
+- 매개변수의 개수 또는 타입이 달라야합니다.
+- 매개변수는 같고 리턴타입이 다른 경우는 오버로딩이 성립되지 않습니다.
+
+```Java
+public class Add {
+
+	int add(int a, int b){
+		int result = a + b;
+		return result;
+	}
+	
+	double addDouble(double a , double b){
+		 double result =a + b;
+		 return result;
+	}
+	
+	
+	double addIntDouble(int a , double b){
+		double result = a + b;
+		return result;
+
+```
+
+- 예를 들어 각 타입의 계산을 할 수 있는 여러개의 함수(메서드)들을 만들었을때
 
 
+```Java
+public class Add {
+
+	int add(int a, int b){
+		int result = a + b;
+		return result;
+	}
+	
+	double add(double a , double b){
+		 double result =a + b;
+		 return result;
+	}
+	
+	
+	double add(int a , double b){
+		double result = a + b;
+		return result;
+
+```
+
+- 이렇게 여러개의 함수 명을 사용하지 않고 하나의 함수명으로 통일하는 작업을 오버로딩이라고 합니다
+
+```Java
+		
+		Add a =new Add();	
+		System.out.println(a.add(2,3));
+		System.out.println(a.add(2.3,3.541))
+		System.out.println(a.add(3, 1.56));		
+```
+
+![image](https://github.com/ijd1236/Java/assets/130967884/226f93a1-131d-4a56-8999-8f357bbea558)
 
 
-
-
-
-
-
+- 메소드 오버로딩으로 함수를 통일하면 이렇게 하나의 메서드 명으로 여러가지 결과를 출력할 수 있습니다.
 
 
 
