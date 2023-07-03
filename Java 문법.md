@@ -213,6 +213,7 @@ Member(String name, String tel, String address){
 	this.name =name;      // this는 인스턴스를 지정할때 사용합니다.
 	this.tel = tel;
 	this.address= address;
+}
 ```
 - 다음과 같은 생성자를 만들어 줘서 m3 참조 변수에 메모리 공간 확보와 , 데이터 저장을 한번에 할 수 있습니다.
 
