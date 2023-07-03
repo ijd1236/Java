@@ -271,6 +271,31 @@ public class Child extends Parent {
 - 그럼 자식 클래스에서는 부모 클래스를 상속 받았기 때문에
 - 부모 클래스가 가지고 있는 name, age, money 의 인스턴스를 별도로 입력하지 않아도 사용할 수 있습니다.
 
+### Method overriding 
+
+- 부모클래스(super) 한테 물려받은 함수 이름을 그대로 사용하되
+- 자식 클래서에 맞는 코드로 수정하는 방식을 Method overriding 이라고 합니다
+
+- 부모 클래스의 인스턴스 값을 출력하는 pint() 함수를 상속하는 예시를 들어보겠습니다.
+
+![image](https://github.com/ijd1236/Java/assets/130967884/ce081fd4-45d4-441c-9dec-7196834efdeb)
+![image](https://github.com/ijd1236/Java/assets/130967884/f8326eab-07f0-4df9-9b94-809b8662c3b2)
+
+```Java
+	@Override
+	public void print() {
+		// TODO Auto-generated method stub
+		super.print();
+	}
+
+```
+
+- 다음과 같은 방법으로 쉽게 부모함수를 상속 받을 수 있습니다
+- 여기서 super.pint();는 부모함수의 print() 합수 내용을 뜻합니다. 따로 입력하지 않아도 부모 함수에서 설정한 코드 들이 저기에 포함됩니다.
+- 이제 저 코드를 수정해서 사용하면 됩니다.
+
+
+
 
 
 
