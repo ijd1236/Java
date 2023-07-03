@@ -219,3 +219,58 @@ Member(String name, String tel, String address){
 
 
 
+
+## Access
+
+``
+
+
+## 상속(inheritnace)
+
+- 상속이란 기존의 클래스를 재사용해서 새로운 클래스를 작성하는 것입니다
+- 두 클래스를 부모와 자식으로 관계를 맺어줍니다.
+- 자식은 부모의 모든 멤버를 상속 받습니다.(생성자, 초기블럭 제외)
+- 자식의 멤버 개수는 조상보다 적을 수 없습니다.
+
+```Java
+public class Parent {
+
+	
+	public String name;
+	public int age;
+	public int money;
+}
+```
+
+- 예시를 위해 부모 클래스 코드를 만들어줍니다.
+
+```Java
+public class Child extends Parent {
+	
+	public String hobby;
+	}
+
+```
+
+
+- 그리고 자식 클래스를 만들어 줍니다
+- 이때 자식 클래스는 extends Parent(부모 클래스이름) 을 입력해서 부모 클래스를 상속받습니다
+
+```Java
+public class Child extends Parent {
+	public void printChild() {
+		System.out.println(name);
+		System.out.println(age);
+		System.out.println(money);
+		System.out.println(hobby);
+	}
+
+}
+```
+
+- 그럼 자식 클래스에서는 부모 클래스를 상속 받았기 때문에
+- 부모 클래스가 가지고 있는 name, age, money 의 인스턴스를 별도로 입력하지 않아도 사용할 수 있습니다.
+
+
+
+
