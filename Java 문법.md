@@ -325,9 +325,260 @@ public class Parent extends GrandParent{
 
 ```
 
+
+
 - 이런식으로 상속받은 클래스에서 Override로 추상 메서드를 완성시킵니다.
 
 ## 인터페이스(interface)
 
+- 일종의 추상클래스, 추상클래스(미완성 설계도) 보다 추상화 정도가 높습니다.
+- 실제 구현된것이 전혀 없는 기본설계도 입니다
+- 추상 메서드와 상수만을 멤버로 가질 수 있습니다
+- 인스턴스를 생성할 수 없고, 클래스 작성에 도움을 줄 목적으로 사용됩니다.
+- 미리 정해진 규칙에 맞게 구현하도록 표준을 제시할 때 사용합니다.
+- 
+![image](https://github.com/ijd1236/Java/assets/130967884/fb8e0bf2-5770-4de7-a318-fd13fbf48248)
 
+- 생성시 class 가 아닌 interface로 생성합니다
+
+```Java
+public interface Card {
+}
+```
+
+- 그럼 코드가 다음과 같이 class 가 아닌 interface로 작성됩니다
+```Java
+	static final int CLOVER = 1;
+	static final int HEART = 2;
+	static final int DIAMOND = 3;
+	static final int SPADE = 4;
+	public void print();
+	public String getCardNumber();
+```
+- 다음과 같이 상수와 추상 메서드를 입력합니다
+- 상수란 변수에 한번 데이터를 저장한 후에 값을 바꿀 수 없는 변수 입니다
+- 상수는 대문자로 입력합니다
+```Java
+public interface Player {
+	
+	
+	public void play(String name);
+	
+	public void end();
+
+}
+```
+
+- 다른 인터페이스도 만들어줍니다
+  
+```Java
+public class MyCard implements Card, Player  {
+}
+
+```
+- 상속받을 클래스를 만들어줍니다 이때 클래스와 인터페이스가 다른 점은
+- '여러개를 상속 받을 수 있는' 점입니다 Card,와 Player 해당 클래스는 인터페이스를 상속받았습니다.
+```Java
+	@Override
+	public void play(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void end() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void print() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getCardNumber() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+```
+-  상속 받은 인터페이스의 메서드들을 전부 Override할 수 있습니다
+
+## 문자 정리
+```Java
+		
+		//문자열 생성 방법2가지
+		
+		String str1 = "Hello";
+		String str2 = new String("Hello");
+		System.out.println(str1);
+		System.out.println(str2);
+		
+		int num1 =3;
+		Integer num2 = 3;
+		
+		System.out.println(num1);
+		System.out.println(num2);
+		
+		double num3 = 3.5;
+		Double num4 = 3.5;
+
+		// 문자열 붙이는 방법
+		String str3 = "Bye";
+		System.out.println(str1 + str3);
+		System.out.println(str1 +" "+ str3);
+		
+		//문자열을 숫자로 바꾸는 방법
+		String str4 = "317";
+		// 첫번째 방법
+		int a = Integer.valueOf(str4).intValue();
+		System.out.println(str4 + 100); // 이상하게 나옴 , *는 에러남
+		System.out.println(a + 100);
+		
+		// 두번째 방법
+		a = Integer.parseInt(str4);
+		System.out.println(a + 100);
+		
+		String str5 = "3.14";
+		
+		double b = Double.valueOf(str5).doubleValue();
+		System.out.println(b+100);
+		
+		b = Double.parseDouble(str5);
+		System.out.println(b+100);
+		
+		// 숫자를 문자열
+		
+		// 첫번째 방법
+		int k = 365;
+		System.out.println("" + k);
+		System.out.println(k + "");
+		
+		// 두번째 방법
+		String data = String.valueOf(k);
+		
+		//세번째 방법
+		data = Integer.toString(k);
+		
+		// 문자열 붙여주는 함수
+		str1 = "hello";
+		str2 = "bye";
+		
+		String result =str1.concat(str2);
+		System.out.println(result);
+		
+		// 문자열의 길이 (갯수) 구하는 ㅎ마수
+		System.out.println(str1.length());
+		
+		// 공백단위로 표기
+		str3 = "안녕하세요 반갑습니다. 식사하셨어요?";
+		String[] dataArr = str3.split(" ");
+		for(int i =0; i < dataArr.length; i++) {
+			System.out.println(dataArr[i]);
+		}
+		// 처음부터 끝까지
+		System.out.println(str3.substring(0));
+
+		// 5번째 글짜부터 끝까지
+		System.out.println(str3.substring(4));
+
+		// 2번째 글짜부터 5번째 글자까지
+		System.out.println(str3.substring(1,4+1));
+		
+		String email1 = " abc@naver.com ";
+		String email2 = "abc@naver.com";
+		// 두 문자열이 같은지를 확인할 때는 == 사용하면 안된다.
+		System.out.println(email1.equals(email2));
+		// 공백 제거하는 함수
+		System.out.println(email1.strip());
+		System.out.println(email1.strip().equals(email2));
+
+		// 대소문자로 변환
+		System.out.println(email2.toUpperCase());
+		System.out.println(email2.toLowerCase());
+		// 문자열이 같은거 ? = equls 함수
+		// 문자열의 대소관계 파악 compareTo 함수
+		
+		str1 = "apple";
+		str2 = "banana";
+		str3 = "candy";
+		str4 = "Apple";
+		
+		// compareTo 함수는
+		// 0이면, 두 문자열은 같다!
+		// 음수면, 작다
+		// 양수면 크다
+		System.out.println(str1.compareTo(str2));
+		System.out.println(str1.compareTo(str3));
+		System.out.println(str2.compareTo(str1));
+		System.out.println(str1.compareTo(str4.toLowerCase()));
+	
+		
+		// email 안에. @가 있는지 확인
+		
+		System.out.println(email2.contains("@"));
+		System.out.println(email2.contains("ddd"));
+		
+		//email2 안에 @가 어디에 있는지 인덱스를 알고 싶을 때
+		System.out.println(email2.indexOf("@"));
+		
+		// 공백제거
+		System.out.println(email1.trim());
+		String str6 = "    Hello  world~";
+
+		System.out.println(str6.trim());
+		//가운데 공백은 안날아감
+```
+
+## ArrayList
+```Java
+String[] nameArr = new String[5];
+```
+- 다음과 같이 Array(배열)은 생성할 때 무조건 갯수를 정해놓고 생성해야 하는데
+- 이렇게 되면 정해진 갯수 이상으론 데이터 추가가 불가능합니다
+- 따라서 갯수 제한 없이 데이터를 마음대로 추가할 수도 , 삭제할 수도 있는 ArrayList 를 이용합니다
+```Java
+			ArrayList<String> nameList = new ArrayList<>();
+			
+			// 데이터 넣기 c
+			nameList.add("홍길동");
+			nameList.add("김나나");
+			nameList.add("철수");
+			
+			// 데이터 가져오기 R
+			
+			System.out.println(nameList.get(1));	 // "김나나"를 가져옵니다	
+			
+			// 데이터 변경 U
+			
+			nameList.set(1, "Mike"); // 김나나가 Mike로 수정됩니다
+			
+			System.out.println(nameList.get(1));
+			
+			// 데이터 삭제 D
+			
+			nameList.remove(0);  // "홍길동"이 사라집니다
+
+			// 전체 데이터를 루프 도는 방법
+			// for each 반복문 
+			for ( int i = 0; i< nameList.size(); i++) {
+				System.out.println(nameList.get(i));
+			}
+			
+			// for each 반복문
+			// 파이썬의 for 같은 반복분
+			
+			for ( String name : nameList) {
+				System.out.println(name);
+			}
+			
+			// ArrayList 에 데이터가 몇개 있는지 확인하는 방법
+			System.out.println(nameList.size());
+			// 데이터가 비어잇는지 확인하는 방법
+			System.out.println(nameList.isEmpty());
+			// 데이터를 모두 삭제하는 함수
+			nameList.clear();
+			System.out.println(nameList.isEmpty());
+```
 
