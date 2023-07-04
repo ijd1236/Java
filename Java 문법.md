@@ -326,5 +326,8 @@ public class Parent extends GrandParent{
 ```
 
 - 이런식으로 상속받은 클래스에서 Override로 추상 메서드를 완성시킵니다.
-- 
+
+## 인터페이스(interface)
+
+
 
