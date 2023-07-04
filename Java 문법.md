@@ -293,6 +293,7 @@ public class Child extends Parent {
 - 다음과 같은 방법으로 쉽게 부모함수를 상속 받을 수 있습니다
 - 여기서 super.pint();는 부모함수의 print() 합수 내용을 뜻합니다. 따로 입력하지 않아도 부모 함수에서 설정한 코드 들이 저기에 포함됩니다.
 - 이제 저 코드를 수정해서 사용하면 됩니다.
+- 상속받을때 private 인스턴스는 제한됩니다
 
 
 
@@ -406,9 +407,9 @@ public class MyCard implements Card, Player  {
 -  상속 받은 인터페이스의 메서드들을 전부 Override할 수 있습니다
 
 ## 문자 정리
+
+- 데이더 넣기
 ```Java
-		
-		//문자열 생성 방법2가지
 		
 		String str1 = "Hello";
 		String str2 = new String("Hello");
@@ -424,12 +425,18 @@ public class MyCard implements Card, Player  {
 		double num3 = 3.5;
 		Double num4 = 3.5;
 
-		// 문자열 붙이는 방법
+```
+
+- 문자열 붙이기
+
+```Java
 		String str3 = "Bye";
 		System.out.println(str1 + str3);
 		System.out.println(str1 +" "+ str3);
-		
-		//문자열을 숫자로 바꾸는 방법
+```
+- 문자열을 숫자로 바꾸기
+- 
+```Java	
 		String str4 = "317";
 		// 첫번째 방법
 		int a = Integer.valueOf(str4).intValue();
@@ -439,7 +446,6 @@ public class MyCard implements Card, Player  {
 		// 두번째 방법
 		a = Integer.parseInt(str4);
 		System.out.println(a + 100);
-		
 		String str5 = "3.14";
 		
 		double b = Double.valueOf(str5).doubleValue();
@@ -447,8 +453,10 @@ public class MyCard implements Card, Player  {
 		
 		b = Double.parseDouble(str5);
 		System.out.println(b+100);
-		
-		// 숫자를 문자열
+```
+- 숫자를 문자열로 만들기
+  
+```Java
 		
 		// 첫번째 방법
 		int k = 365;
@@ -467,16 +475,28 @@ public class MyCard implements Card, Player  {
 		
 		String result =str1.concat(str2);
 		System.out.println(result);
-		
-		// 문자열의 길이 (갯수) 구하는 ㅎ마수
+```
+- 문자열 갯수 구하기
+- 
+```Java
 		System.out.println(str1.length());
-		
-		// 공백단위로 표기
+```
+
+- 공백 단위로 표기하기
+```Java
 		str3 = "안녕하세요 반갑습니다. 식사하셨어요?";
 		String[] dataArr = str3.split(" ");
 		for(int i =0; i < dataArr.length; i++) {
 			System.out.println(dataArr[i]);
-		}
+		}  // 출력결과 = 안녕하세요
+  				 반갑습니다
+  				 식사하셨어요
+```
+
+- 문자 가져오기 및 변환
+
+```Java
+  
 		// 처음부터 끝까지
 		System.out.println(str3.substring(0));
 
@@ -485,7 +505,7 @@ public class MyCard implements Card, Player  {
 
 		// 2번째 글짜부터 5번째 글자까지
 		System.out.println(str3.substring(1,4+1));
-		
+
 		String email1 = " abc@naver.com ";
 		String email2 = "abc@naver.com";
 		// 두 문자열이 같은지를 확인할 때는 == 사용하면 안된다.
@@ -499,22 +519,26 @@ public class MyCard implements Card, Player  {
 		System.out.println(email2.toLowerCase());
 		// 문자열이 같은거 ? = equls 함수
 		// 문자열의 대소관계 파악 compareTo 함수
-		
+```
+
+```Java
+- 문자 대소 파악하기 및 문자 확인
+
 		str1 = "apple";
 		str2 = "banana";
 		str3 = "candy";
 		str4 = "Apple";
 		
 		// compareTo 함수는
-		// 0이면, 두 문자열은 같다!
+		// 0이면, 두 문자열은 같다
 		// 음수면, 작다
 		// 양수면 크다
 		System.out.println(str1.compareTo(str2));
 		System.out.println(str1.compareTo(str3));
 		System.out.println(str2.compareTo(str1));
 		System.out.println(str1.compareTo(str4.toLowerCase()));
-	
-		
+
+  	
 		// email 안에. @가 있는지 확인
 		
 		System.out.println(email2.contains("@"));
@@ -539,7 +563,7 @@ String[] nameArr = new String[5];
 - 이렇게 되면 정해진 갯수 이상으론 데이터 추가가 불가능합니다
 - 따라서 갯수 제한 없이 데이터를 마음대로 추가할 수도 , 삭제할 수도 있는 ArrayList 를 이용합니다
 ```Java
-			ArrayList<String> nameList = new ArrayList<>();
+			ArrayList<String> nameList = new ArrayList<>();  // 클랙스 개체라 new 키워드를 사용하여 객체를 생성해야합니다
 			
 			// 데이터 넣기 c
 			nameList.add("홍길동");
@@ -576,9 +600,21 @@ String[] nameArr = new String[5];
 			// ArrayList 에 데이터가 몇개 있는지 확인하는 방법
 			System.out.println(nameList.size());
 			// 데이터가 비어잇는지 확인하는 방법
+
+
+
 			System.out.println(nameList.isEmpty());
 			// 데이터를 모두 삭제하는 함수
 			nameList.clear();
 			System.out.println(nameList.isEmpty());
 ```
 
+## HashMap
+
+- Map 은 파이썬의 딕셔너리와 비슷한 데이터 스트럭쳐로서,
+- key, value 의 쌍으로 저장합니다.
+
+- 객체 생성
+```Java
+HashMap<String, String> phoneMap = new HashMap<>();
+```
