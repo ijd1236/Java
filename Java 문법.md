@@ -297,5 +297,34 @@ public class Child extends Parent {
 
 
 
+## 추상 클래스(Abstract class)
 
+- 추상 클래스는 추상 메서드(미완성 메서드)를 포함하고 있는 클래스를 말합니다
+- 추상 메서드는 선언부만 있고 구현부(몸통) 가 없는 메서드를 말합니다
+```Java
+public abstract class GrandParent {
+
+	public abstract void print();
+
+}
+
+```
+- 추상 클래스는 이런 형태로 만듭니다 추상 메서드를 사용하면 클래스와 메서드에 abstarct 를 붙여줘야합니다
+- 추상 클래스는 상속 받는 클래스에게 메서드를 완성하도록 유도하기 위해 만듭니다.
+```java
+public class Parent extends GrandParent{
+
+	String job;
+	
+	
+	@Override
+	public void print() {
+		System.out.println(name);
+		System.out.println(age);
+		System.out.println(job);
+
+```
+
+- 이런식으로 상속받은 클래스에서 Override로 추상 메서드를 완성시킵니다.
+- 
 
