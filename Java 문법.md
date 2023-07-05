@@ -187,8 +187,8 @@ public class Member {
 	String address;
 ```
 
-- 이름, 전화번호, 주소 세개의 인스턴스를 받는 클래스가 있습니다
-- 이걸 다른 클래스에서 인스턴스 값을 작성하고자 합니다.
+- 이름, 전화번호, 주소 세개의 멤버변수를 받는 클래스가 있습니다
+- 이걸 다른 클래스에서 인스턴스에 멤버변수 값을 작성하고자 합니다.
 
 ```Java
 Member m2 = new Member();
@@ -198,19 +198,19 @@ m2.tel = "010-2222-3333";
 m2.address = "인천시 연수구";
 
 ```
-- 그럼 보통 이렇게 new 클래스를 호출, 메모리 공간을 확보하고 인스턴스에 데이터를 저장하는 작업을거치는데
-- 위에서도 말했듯이 생략된 Member() 생성자를 호출하여 인스턴스 값을 지정하고 그 값을 m2 참조변수에 저장합니다.
+- 그럼 보통 이렇게 new 클래스를 호출, 메모리 공간을 확보하고 인스턴스 멤버변수에 데이터를 저장하는 작업을거치는데
+- 위에서도 말했듯이 생략된 Member() 생성자를 호출하여 멤버변수 값을 지정하고 그 값을 m2 참조변수에 저장합니다.
 - 그런데 이걸
 ```Java
 Member m3 = new Member("철수", "010-5213-5135", "인천시 남동구");
 ```
-- 이런식으로 메모리 공간확보와 인스턴스에 값 저장을 한번에 하려고 합니다.
+- 이런식으로 메모리 공간확보와 멤버변수에 값 저장을 한번에 하려고 합니다.
 - 이렇게 하기 위해서는 생성자를 추가 해야합니다.(추가할시 기존에 생략된 생성자는 추가되는 생성자로 초기화되므로 Member() 생성자를 다시 입력해 줘야 기존 Member() 생성자를 호출한 m2 참조변수도 사용할 수 있습니다.
 
 - Member 클래스에서
 ```Java
 Member(String name, String tel, String address){
-	this.name =name;      // this는 인스턴스를 지정할때 사용합니다.
+	this.name =name;      // this는 멤버변수를 지정할때 사용합니다.
 	this.tel = tel;
 	this.address= address;
 }
@@ -222,7 +222,11 @@ Member(String name, String tel, String address){
 
 ## Access
 
-``
+- 접근 제어란, 다른 클래스에서 이 클래스의 멤버 변수나 메소드를 이용할 수 있도록 열어주거나 닫아주는 역할을 하는것을 말합니다.
+- 접근 제어는 총 4개의 키워드가 있습니다
+- 1. default : 아무 키워드도 적지 않으면 적용됩니다 같은 패키지 안에서만 접근 가능합니다.
+  2. public : 다른 클래스 어디서건 클래스의 멤버 변수와 메소드에 접근할 수 있게합니다.
+  3. 
 
 
 ## 상속(inheritnace)
@@ -269,14 +273,14 @@ public class Child extends Parent {
 ```
 
 - 그럼 자식 클래스에서는 부모 클래스를 상속 받았기 때문에
-- 부모 클래스가 가지고 있는 name, age, money 의 인스턴스를 별도로 입력하지 않아도 사용할 수 있습니다.
+- 부모 클래스가 가지고 있는 name, age, money 의 멤버변수를 별도로 입력하지 않아도 사용할 수 있습니다.
 
 ### Method overriding 
 
 - 부모클래스(super) 한테 물려받은 함수 이름을 그대로 사용하되
 - 자식 클래서에 맞는 코드로 수정하는 방식을 Method overriding 이라고 합니다
 
-- 부모 클래스의 인스턴스 값을 출력하는 pint() 함수를 상속하는 예시를 들어보겠습니다.
+- 부모 클래스의 멤버변수 값을 출력하는 pint() 함수를 상속하는 예시를 들어보겠습니다.
 
 ![image](https://github.com/ijd1236/Java/assets/130967884/ce081fd4-45d4-441c-9dec-7196834efdeb)
 ![image](https://github.com/ijd1236/Java/assets/130967884/f8326eab-07f0-4df9-9b94-809b8662c3b2)
@@ -293,7 +297,7 @@ public class Child extends Parent {
 - 다음과 같은 방법으로 쉽게 부모함수를 상속 받을 수 있습니다
 - 여기서 super.pint();는 부모함수의 print() 합수 내용을 뜻합니다. 따로 입력하지 않아도 부모 함수에서 설정한 코드 들이 저기에 포함됩니다.
 - 이제 저 코드를 수정해서 사용하면 됩니다.
-- 상속받을때 private 인스턴스는 제한됩니다
+- 상속받을때 private 제한됩니다
 
 
 
@@ -618,3 +622,4 @@ String[] nameArr = new String[5];
 ```Java
 HashMap<String, String> phoneMap = new HashMap<>();
 ```
+
